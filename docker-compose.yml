@@ -1,4 +1,4 @@
-version: "2"
+version: "3.3"
 services:
     api:
         build: python-api
@@ -6,20 +6,17 @@ services:
             - "5000:5000"
         volumes: 
             - /proc:/proc
-        network_mode: host
         depends_on:
             - docker_mongo
     frontend:
+        container_name: "sopes1_frontend"
         build: web
         ports: 
             - "3000:3000"
-        network_mode: host
-    depends_on:
-        - docker_mongo
+        depends_on:
+            - docker_mongo
     docker_mongo:
+        container_name: "sopes1_mongo"
         image: mongo
         ports:
-            - "27017:27017"
-        expose: 
-            - "27017"
-        network_mode: host
+            - "27017-27019:27017-27019"

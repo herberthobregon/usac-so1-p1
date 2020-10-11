@@ -3,9 +3,14 @@ from src.objects.C2Blueprint import C2Blueprint
 from .posts import posts
 from .cpu import cpu
 from .ram import ram
+from . import config
 
 apiv1 = C2Blueprint("private_v1", __name__)
 
+
+@apiv1.route('/',methods=['GET'])
+def hello():
+    return config.resp({},200)
 
 # Obtiene todos los post 
 # @returns {autor:string; nota: string}[]

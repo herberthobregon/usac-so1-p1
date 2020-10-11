@@ -8,4 +8,4 @@ CORS(app, max_age=1728000)
 app.register_blueprint(apiv1, url_prefix='/v1')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT',8080), debug=True)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT',5000), debug=True)
