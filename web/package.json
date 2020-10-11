@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@conectate/ct-elements": "file:./@conectate/ct-elements",
+        "@conectate/ct-helpers": "^0.0.1",
         "@conectate/ct-lit": "^1.1.0",
         "@webcomponents/webcomponentsjs": "^2.4.0",
         "dexie": "^2.0.4",

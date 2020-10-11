@@ -272,7 +272,7 @@ export function getGeoLocation(): Promise<{ lat: number; lon: number }> {
 /**
  * Sleep Promise
  */
-export let sleep = (time: number) => new Promise(resolve => setTimeout(() => resolve(), time));
+export let sleep = (time: number) => new Promise(resolve => setTimeout(() => resolve(0), time));
 
 /**
  * Generate Random ID
