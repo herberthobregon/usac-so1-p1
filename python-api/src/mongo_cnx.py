@@ -1,6 +1,8 @@
 import pymongo
 import json
-mongocnx = pymongo.MongoClient("mongodb://localhost:27017/")
+from . import config
+
+mongocnx = pymongo.MongoClient("mongodb://" + config.MONGODB_URL + "/")
 
 
 class CollPosts:

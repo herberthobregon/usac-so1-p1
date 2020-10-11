@@ -58,9 +58,9 @@ def insert_posts():
 
     # ===================== Final de validaciones =====================
     headers = {'Content-Type': 'application/json'}
-    requests.request("POST", url, headers=headers, data=data.to_json())
-
-    return config.resp({},201)
+    rsp = requests.request("POST", url, headers=headers, data=data.to_json())
+    rsp.json()
+    return config.resp({"server": url,"rsp" : rsp.json()}, 200)
 
 def insert_posts():
     js = flask.request.get_json(force=True, silent=True)

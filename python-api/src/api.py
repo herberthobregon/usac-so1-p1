@@ -10,7 +10,9 @@ apiv1 = C2Blueprint("private_v1", __name__)
 
 @apiv1.route('/',methods=['GET'])
 def hello():
-    return config.resp({},200)
+    return config.resp({
+        "MONGODB_URL": "mongodb://" + config.MONGODB_URL + "/"
+    },200)
 
 # Obtiene todos los post 
 # @returns {autor:string; nota: string}[]
