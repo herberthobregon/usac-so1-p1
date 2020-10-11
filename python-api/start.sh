@@ -1,0 +1,1 @@
+gunicorn main:app -c gunicorn.conf.py --bind unix:conectate.sock -m 007

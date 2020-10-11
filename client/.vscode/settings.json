@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/Users/herberth/AppsX/venv/bin/python",
+    "python.pipenvPath": "/Users/herberth/AppsX/venv/bin/python",
+    "python.languageServer": "Pylance",
+    "python.formatting.provider": "black"
+}
