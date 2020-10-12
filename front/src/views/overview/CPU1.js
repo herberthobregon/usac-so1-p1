@@ -48,7 +48,7 @@ class RAM1 extends Component {
 			}]
 		}
 		try{
-			let rsp = await fetch("http://35.224.229.62:5000/v1/ram")
+			let rsp = await fetch("http://35.224.229.62:5000/v1/cpu")
 			let data = await rsp.json();
 			this.data = data;
 		}
@@ -68,7 +68,7 @@ class RAM1 extends Component {
 		
 		return (
 		  <div className="ChartWithZoom">
-				<h1>Ram 1</h1>
+				<h1>CPU 1</h1>
 				<CanvasJSChart options = {this.options} 
 				/* onRef={ref => this.chart = ref} */
 				/>

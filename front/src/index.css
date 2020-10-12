@@ -26,7 +26,7 @@ body {
   position: fixed;
 }
 #sidebar {
-  background-color: #eee;
+  background-color: #fff;
   border-right: 1px solid #ccc;
   bottom: 0;
   top: 0;
@@ -36,13 +36,13 @@ body {
   overflow-y: auto;
   padding: 0;
   position: fixed;
-  top: 56px;
+  top: 0;
   width: 250px;
   z-index: 1000;
 }
 #sidebar > .nav {
   padding-bottom: 24px;
-  background-color: #eee;
+  background-color: #fff;
 }
 .list-group-item {
   border: 0 !important;
@@ -60,7 +60,7 @@ h1 {
   padding: 0;  
   position: relative;
   display: block;
-  background-color: #eee;
+  background-color: #fff;
   text-decoration: none;
 }
 #sidebar > .nav > .list-group-item > a {

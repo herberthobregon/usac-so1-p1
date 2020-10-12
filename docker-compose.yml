@@ -20,7 +20,7 @@ services:
     frontend:
         container_name: "sopes1_frontend"
         build: 
-            context: web
+            context: front
             dockerfile: Dockerfile
         ports: 
             - "3000:3000"

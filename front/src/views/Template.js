@@ -17,8 +17,8 @@ import {
 
 import RAM1 from "./overview/RAM1";
 import RAM2 from "./overview/RAM2";
-import RAM3 from "./overview/RAM3";
-import RAM4 from "./overview/RAM4";
+import CPU1 from "./overview/CPU1";
+import CPU2 from "./overview/CPU2";
 
 import Publicaciones from "./overview/Publicaciones";
 
@@ -27,14 +27,9 @@ class Template extends Component {
   
   render() {    
     return (
-		<div>
-			<Navbar bg="dark" variant="dark">
-				<button className="d-lg-none toggle-sidebar"><span className="navbar-toggler-icon"></span></button>
-				<Navbar.Brand href="/">RAM</Navbar.Brand><span className="hidden-xs text-muted">Estado de RAM</span>
-			  </Navbar>		  
+		<div>	  
 			  <BrowserRouter>		  
 					<Row>
-						
 						<Nav to="/" className="flex-sm-column" id="sidebar">
 							<ListGroup className="nav nav-sidebar flex-sm-column">
 								<ListGroup.Item>
@@ -44,8 +39,8 @@ class Template extends Component {
 									<ListGroup className="sub-menu collapse" id="overview">
 										<ListGroup.Item> <NavLink exact to="/ram1">Ram 1</NavLink></ListGroup.Item>
 										<ListGroup.Item> <NavLink exact to="/ram2">Ram 2</NavLink></ListGroup.Item>
-										<ListGroup.Item> <NavLink exact to="/ram3">Ram 3</NavLink></ListGroup.Item>
-										<ListGroup.Item> <NavLink exact to="/ram4">Ram 4</NavLink></ListGroup.Item>
+										<ListGroup.Item> <NavLink exact to="/cpu1">CPU 1</NavLink></ListGroup.Item>
+										<ListGroup.Item> <NavLink exact to="/cpu2">CPU 2</NavLink></ListGroup.Item>
 									</ListGroup>
 								</ListGroup>
 								<ListGroup.Item role="separator" className="divider"></ListGroup.Item>
@@ -66,8 +61,8 @@ class Template extends Component {
 								<div className="content">
 									<Route path="/ram1" component={RAM1}/>	
 									<Route path="/ram2" component={RAM2}/>
-									<Route path="/ram3" component={RAM3}/>	
-									<Route path="/ram4" component={RAM4}/>	
+									<Route path="/cpu1" component={CPU1}/>	
+									<Route path="/cpu2" component={CPU2}/>
 
 									<Route path="/publicaciones" component={Publicaciones}/>							
 								</div>

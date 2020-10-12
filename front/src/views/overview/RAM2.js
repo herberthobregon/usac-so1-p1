@@ -2,25 +2,12 @@ import React, { Component } from 'react';
 import CanvasJSReact from '../../assets/canvasjs.react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
  
-class RAM2 extends Component {
+class RAM1 extends Component {
   	constructor() {
 		super();
-		this.generateDataPoints = this.generateDataPoints.bind(this);
-	}
-	
-	generateDataPoints(noOfDps) {
-		var xVal = 1, yVal = 100;
-		var dps = [];
-		for(var i = 0; i < noOfDps; i++) {
-			yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-			dps.push({x: xVal,y: yVal});	
-			xVal++;
-		}
-		return dps;
-	}
-	
-	render() {
-		const options = {
+		this.data = []
+		this.init = 1
+		this.options = {
 			theme: "light2", // "light1", "dark1", "dark2"
 			animationEnabled: true,
 			zoomEnabled: true,
@@ -32,17 +19,61 @@ class RAM2 extends Component {
 			},
 			data: [{
 				type: "area",
-				dataPoints: this.generateDataPoints(500)
+				dataPoints: this.data
 			}]
 		}
+	}
+	
+	generateDataPoints() {
+		var yVal = 100;
+		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+		return {x: this.init++,y: yVal};
+	}
+
+	async callAPI(){
+		this.data.push(this.generateDataPoints())
+		this.options = {
+			theme: "light2", // "light1", "dark1", "dark2"
+			animationEnabled: true,
+			zoomEnabled: true,
+			title: {
+				text: "Estado"
+			},
+			axisY: {
+				includeZero: false
+			},
+			data: [{
+				type: "area",
+				dataPoints: this.data
+			}]
+		}
+		try{
+			let rsp = await fetch("http://34.71.129.78:5000/v1/ram")
+			let data = await rsp.json();
+			this.data = data;
+		}
+		catch{}
+	}
+	
+	componentDidMount(){
+		this.callAPI();
+		setInterval(()=>{
+			console.log("call");
+			this.callAPI();
+		},5000)
+	}
+
+
+	render() {
+		
 		return (
 		  <div className="ChartWithZoom">
-				<h1>RAM 2</h1>
-				<CanvasJSChart options = {options} 
+				<h1>Ram 2</h1>
+				<CanvasJSChart options = {this.options} 
 				/* onRef={ref => this.chart = ref} */
 				/>
 		  </div>
 		);
 	}
 }
-export default RAM2;
+export default RAM1;
