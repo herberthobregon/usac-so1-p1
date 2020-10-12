@@ -50,7 +50,6 @@ class RAM1 extends Component {
 		try{
 			let rsp = await fetch("http://34.71.129.78:5000/v1/ram")
 			let data = await rsp.json();
-			this.data = data;
 		}
 		catch{}
 	}
